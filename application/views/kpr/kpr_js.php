@@ -19,7 +19,7 @@
             slideChangeTransitionEnd: function(s) {
                 var i = s.progress;
                 var params = s.params;
-                console.log("progress" + i);
+                // console.log("progress" + i);
                 if (i >= 1) {
                     swiper.destroy(false, false);
                     params.autoplay = false;
@@ -28,6 +28,49 @@
             }
         }
     });
+
+    const initSlider = () => {
+        const sliderWrappers = document.querySelectorAll(".slider-wrapper");
+
+        sliderWrappers.forEach(wrapper => {
+            const imageList = wrapper.querySelector(".image-list");
+            const prevButton = wrapper.querySelector(".prev-slide");
+            const nextButton = wrapper.querySelector(".next-slide");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+
+            prevButton.addEventListener("click", () => {
+                imageList.scrollBy({
+                    left: -imageList.clientWidth,
+                    behavior: "smooth"
+                });
+            });
+
+            nextButton.addEventListener("click", () => {
+                imageList.scrollBy({
+                    left: imageList.clientWidth,
+                    behavior: "smooth"
+                });
+            });
+
+            const handleSlideButtons = () => {
+                prevButton.style.display = imageList.scrollLeft <= 0 ? "none" : "block";
+                nextButton.style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
+            };
+
+            imageList.addEventListener("scroll", () => {
+                handleSlideButtons();
+            });
+
+            // Initial button state
+            handleSlideButtons();
+        });
+    };
+
+    // Initialize the slider after DOM content is fully loaded
+    document.addEventListener("DOMContentLoaded", initSlider);
+
+    window.addEventListener("resize", initSlider);
+    window.addEventListener("load", initSlider);
 
     function formatCurrency(value) {
         // Convert the value to a string and remove any non-numeric characters
@@ -73,34 +116,22 @@
             $('#hasil').text('Rp.-');
         }
     }
-
-    // Example value and operation
-    var m = '1000000000';
-    var jt = '1000000';
-
-    var nominal = $('.nominal').text();
-    var satuan = $('.satuan').text();
-    if (satuan == 'M') {
-        nominal = parseFloat(nominal) * m;
-    } else if (satuan == 'Jt') {
-        nominal = parseFloat(nominal) * jt;
-    }
-
-    // Set formatted value to the input field
-    $('#hargaProperti').val(formatCurrency(nominal));
-
+    $('#hargaProperti').on('input', function() {
+        $('#hasil-hargaProperti').text('Rp.' + formatCurrency($(this).val()));
+    })
     // Attach event listeners to inputs for calculation and formatting
     $('input').on('input', function() {
         // Format the value before calculating
         $(this).val(formatCurrency(parseCurrency($(this).val())));
-
         calculateKPR(); // Calculate KPR
     });
-</script>
 
-<!-- hargaProperti = 300,000,000
-uangMuka = 100,000,000
-jumlahPinjaman = 200,000,000
-jangkaWaktu = 15
-sukuBunga = 5
-hasil = 158,158,725 -->
+    $('li').each(function(index) {
+        // Set new ID for the checkbox and the label
+        var checkboxId = 'chek' + (index + 1);
+
+        // Find the input (checkbox) and label within the current li element
+        $(this).find('input[type="checkbox"]').attr('id', checkboxId);
+        $(this).find('label').attr('for', checkboxId);
+    });
+</script>

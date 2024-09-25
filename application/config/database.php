@@ -79,7 +79,7 @@ $db['default'] = array(
 	// LOCAL
 	'username' => 'root',
 	'password' => '',
-	// 'database' => 'kanpa_ci',
+	'database' => 'kanpa_ci',
 
 	// ONLINE
 	// 'username' => 'kina3126_kanpa',

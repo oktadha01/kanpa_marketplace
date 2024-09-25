@@ -6,19 +6,19 @@
         <div class="row p-2">
             <div class="col-lg-8 col-md-8 col-12 ">
                 <div class="swiper pt-0">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                    <div id="banner-full" class="swiper-wrapper">
+                        <!-- <div class="swiper-slide">
                             <img src="<?= base_url('assets/img/banner/'); ?>header-september-24-kanpa.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
+                        </div> -->
+                        <!-- <div class="swiper-slide">
                             <img src="<?= base_url('assets/img/banner/'); ?>header-september-24-KANPA-S.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="swiper-slide">
                             <img src="<?= base_url('assets/img/banner/'); ?>promo-utj-tamankautsar.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
+                        </div> -->
+                        <!-- <div class="swiper-slide">
                             <img src="https://www.jakartanotebook.com/images/banners/2024/07/Artboard_Copy_10.jpg" class="img-fluid" alt="">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
@@ -26,8 +26,8 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-12 ">
-                <div class="row mt-1">
-                    <div class="col-6 p-2">
+                <div id="banner-split" class="row mt-1">
+                    <!-- <div class="col-6 p-2">
                         <div class="">
                             <img src="<?= base_url('assets/img/banner/'); ?>RUMAH-LAMA.jpg" class="border img-fluid" alt="">
                         </div>
@@ -36,20 +36,17 @@
                         <div class="">
                             <img src="<?= base_url('assets/img/banner/'); ?>RUMAH-BARU.jpg" class="border img-fluid" alt="">
                         </div>
-                    </div>
-                    <!-- <div class="col-lg-6 col-md-6 col-4 p-2 col-header-4">
-                        <div class="">
-                            <img src="http://localhost/ecom_kanpa/upload/eb5ffb9e950aedc603c27473179afb86.jpg" class="border img-fluid" alt="">
-                        </div>
                     </div> -->
-                    <div class="col-12 p-2 col-header-12">
+                </div>
+                <div id="banner-singel" class="row">
+                    <!-- <div class="col-12 p-2 col-header-12">
                         <img src="https://www.jakartanotebook.com/images/banners/2024/07/Artboard_Copy_10.jpg" class=" border img-fluid" alt="">
                         <div class="box3"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
+        <!-- <div class="row mt-2">
             <div class="text-center">
                 <h1 class="tittle title-cari-rumah">Cari Rumah Area Mana ?</h1>
             </div>
@@ -64,9 +61,9 @@
                 </div>
                 <button class="search-button">Cari</button>
             </div>
-        </div>
+        </div> -->
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-blue text-light pt-1 pb-1 b-radius-top">
@@ -251,61 +248,57 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
     <section class="container">
         <div class="row">
             <h1 class="tittle">Kategori Poperti</h1>
         </div>
-        <div class="row mt-4 m-2">
-            <div class="col-lg-6 col-md-6 col-12 p-0">
-                <ul class="d-flex ul-lans">
-                    <li class="text-webkit-center mx-w-li">
-                        <a href="<?= base_url('Dijual/rumah/'); ?>">
-                            <div class="border-li bi i-home"></div>
-                            <span class="font-weight-bold text-black f-sz-li-porperti">Rumah</span>
-                        </a>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                        <a href="<?= base_url('Dijual/apartement/'); ?>">
-                            <div class="border-li i-apartment"></div>
-                            <span class="font-weight-bold text-black f-sz-li-porperti">Apartment</span>
-                        </a>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                    <a href="<?= base_url('Dijual/perumahan/'); ?>">                        
+        <div class="mt-4 m-2">
+            <ul class="ul-lans">
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <a href="<?= base_url('Properti/jualsewa/rumah/'); ?>">
+                        <div class="border-li bi i-home"></div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Rumah</span>
+                    </a>
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <a href="<?= base_url('Properti/dijual/perumahan/'); ?>#dijual">
                         <div class="border-li i-perumahan"></div>
                         <span class="font-weight-bold text-black f-sz-li-porperti">Perumahan</span>
                     </a>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                    <a href="<?= base_url('Dijual/kavling/'); ?>">                        
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <a href="<?= base_url('Properti/jualsewa/ruko/'); ?>">
+                        <div class="border-li i-ruko"></div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Ruko</span>
+                    </a>
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <a href="<?= base_url('Properti/dijual/kavling/'); ?>#dijual">
                         <div class="i-kavling border-li"></div>
                         <span class="font-weight-bold text-black f-sz-li-porperti">Kavling</span>
                     </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12 p-0">
-                <ul class="d-flex ul-lans">
-                    <li class="text-webkit-center mx-w-li">
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <a href="<?= base_url('Simulasi_KPR'); ?>">
                         <div class="i-simulasi border-li"></div>
-                        <span class="font-weight-bold f-sz-li-porperti">Simulasi KPR</span>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                        <div class="i-titip-jual border-li"></div>
-                        <span class="font-weight-bold f-sz-li-porperti">Titip Jual</span>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                        <div class="i-agen border-li"></div>
-                        <span class="font-weight-bold f-sz-li-porperti">Cari Agen</span>
-                    </li>
-                    <li class="text-webkit-center mx-w-li">
-                        <div class="i-join-kanpa border-li"></div>
-                        <span class="font-weight-bold f-sz-li-porperti">Join Kanpa</span>
-                    </li>
-                </ul>
-            </div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Simulasi KPR</span>
+                    </a>
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <div class="i-titip-jual border-li"></div>
+                    <span class="font-weight-bold f-sz-li-porperti">Titip Jual</span>
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <div class="i-join-kanpa border-li"></div>
+                    <span class="font-weight-bold f-sz-li-porperti">Join Kanpa</span>
+                </li>
+                <li class="text-webkit-center mx-w-li mb-4">
+                    <div class="i-faq border-li"></div>
+                    <span class="font-weight-bold f-sz-li-porperti">Faq</span>
+                </li>
+            </ul>
         </div>
     </section>
     <section class="pt-3 pb-5">
@@ -319,17 +312,6 @@
                     <div class="slider-wrapper slider-wrapper-city">
                         <ul class="image-list swiper-gap-city p-0">
                             <?= $get_kota; ?>
-                            <!-- <?php for ($i = 1; $i <= 5; $i++) { ?>
-                                <li class="img-item">
-                                    <div class="card border li-city">
-                                        <img class="radius-img-city" src="<?= base_url('assets/img/city/'); ?>banjar.jpg" alt="">
-                                        <div class="P-3 text-center m-li-box-city">
-                                            <h6 class="font-weight-bold f-s-li-city mb-0">Kab.</h6>
-                                            <h6 class="font-weight-bold f-s-li-city mb-0">Bajarmasin</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                            <?php } ?> -->
                             <li class="img-item">
                                 <div class="card border li-city-none">
                                 </div>
@@ -352,7 +334,9 @@
                 <div class="col-lg-4 col-md-4 col-12 text-light text-align-center">
                     <div class="d-flex justify-content-between text-align-center">
                         <h1 class="font-weight-bold">Perumahan Viral</h1>
-                        <span class="spn-vw-all">Lihat Semua</span>
+                        <a href="<?= base_url('Video/review/'); ?>">
+                            <span class="spn-vw-all">Lihat Semua</span>
+                        </a>
                     </div>
                     <p class="p-desk-v">
                         Yuk Tonton video promosinya dan buruan hubungi Marketingnya sebelum Unitnya Habis.
@@ -360,22 +344,7 @@
                 </div>
                 <div class="col-lg-8 col-md-8 col-12">
                     <div class="slider-wrapper slider-wrapper-reels">
-                        <ul class="image-list p-0">
-                            <?php for ($i = 1; $i <= 5; $i++) { ?>
-                                <li class="img-item">
-                                    <div class="reel__container">
-                                        <div class="reel__content">
-                                            <button class="btn-play" id="play-button">
-                                                <i class="fa-solid fa-play"></i>
-                                            </button>
-                                            <video class="video" width="315" height="560">
-                                                <source src="<?= base_url('upload/video/'); ?>baron-hardseling 2.mp4" type="video/mp4">
-                                            </video>
-                                            <span class="text-desk">Your browser does not support the video tag.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            <?php } ?>
+                        <ul id="load-data-video-populer" class="image-list p-0">
                             <li class="img-item">
                                 <div class="reel__container">
                                     <div class="reel__content">
@@ -407,38 +376,7 @@
             <div class="row mt-3">
                 <div class="slider-wrapper slider-wrapper-populer">
                     <ul id="load-data-properti-populer" class="image-list swiper-liproperty row">
-                        <!-- <?= $properti_populer; ?> -->
-                        <?php for ($i = 1; $i <= 5; $i++) { ?>
-                            <!-- <li class="img-item col-6 p-2 pb-3">
-                                <div class="populer-container">
-                                    <div class="populer-content">
-                                        <img src="<?= base_url('upload'); ?>/test/ATH.jpg" class="img-produk-sw">
-                                    </div>
-                                    <div class="bg-light border p-2">
-                                        <span class="title-new-proyek">PROYEK BARU</span>
-                                        <span class="title-tayang">Tayang sejak 24 November 2024</span>
-                                        <h3 class="title-price">Rp 700 Jt</h3>
-                                        <h5 class=" title-properti font-weight-bold">Alton Town House</h5>
-                                        <h6 class="font-weight-bold title-address"><i class="bi bi-geo-alt"></i> Sisemut, Ungaran Barat</h6>
-                                        <ul class="d-flex ul-detail mt-3">
-                                            <li><span class="font-weight-bold">LT</span> : 120 m2</li>
-                                            <li><span class="font-weight-bold">LT</span> : 140 m2</li>
-                                            <li><span class="font-weight-bold">KT</span> : 4</li>
-                                            <li><span class="font-weight-bold">Km</span> : 2</li>
-                                        </ul>
-                                        <hr>
-                                        <div class="d-flex kontakas">
-                                            <img src="https://kanpa.co.id/upload/0a7970f0cf26d2603a626d489036cc64.png" class="img-marketing">
-                                            <div class="d-block">
-                                                <h5 class="font-weight-bold title-name m-0">Ziha Zizi</h5>
-                                                <p class="small title-address m-0">Ungaran Barat</p>
-                                            </div>
-                                            <i class="bi bi-whatsapp i-wa-marketing"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                        <?php } ?>
+
                         <li class="img-item">
                             <div class="populer-container">
                             </div>
@@ -460,65 +398,40 @@
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container flex-grow-1 container-p-y">
+            <h1 class="tittle text-center">Kami Tersedia di</h1>
             <div class="row">
-                <div class="d-flex justify-content-between text-align-center">
-                    <h1 class="tittle">Baru Ditawarkan</h1>
-                    <a href="#" class="spn-vw-all text-blue">Lihat Semua</a>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="slider-wrapper slider-wrapper-populer">
-                    <ul class="image-list swiper-liproperty row">
-                        <?php for ($i = 1; $i <= 5; $i++) { ?>
-                            <li class="img-item col-6 p-2 pb-3">
-                                <div class="populer-container">
-                                    <div class="populer-content">
-                                        <img src="<?= base_url('upload'); ?>/test/ATH.jpg" class="img-produk-sw">
-                                    </div>
-                                    <div class="bg-light border p-2">
-                                        <span class="title-new-proyek">PROYEK BARU</span>
-                                        <span class="title-tayang">Tayang sejak 24 November 2024</span>
-                                        <h3 class="title-price">Rp 700 Jt</h3>
-                                        <h5 class=" title-properti font-weight-bold">Alton Town House</h5>
-                                        <h6 class="font-weight-bold title-address"><i class="bi bi-geo-alt"></i> Sisemut, Ungaran Barat</h6>
-                                        <ul class="d-flex ul-detail mt-3">
-                                            <li><span class="font-weight-bold">LT</span> : 120 m2</li>
-                                            <li><span class="font-weight-bold">LT</span> : 140 m2</li>
-                                            <li><span class="font-weight-bold">KT</span> : 4</li>
-                                            <li><span class="font-weight-bold">Km</span> : 2</li>
-                                        </ul>
-                                        <hr>
-                                        <div class="d-flex kontakas">
-                                            <img src="https://kanpa.co.id/upload/0a7970f0cf26d2603a626d489036cc64.png" class="img-marketing">
-                                            <div class="d-block">
-                                                <h5 class="font-weight-bold title-name m-0">Ziha Zizi</h5>
-                                                <p class="small title-address m-0">Ungaran Barat</p>
-                                            </div>
-                                            <i class="bi bi-whatsapp i-wa-marketing"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
-                        <li class="img-item">
-                            <div class="populer-container">
+                <div class="col-xl-12 col-lg-12">
+                    <?php if (isset($error_message) && !empty($error_message)) : ?>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <?= htmlspecialchars($error_message); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <div class="nav-align-top mb-4">
+                        <ul class="nav nav-tabs nav-fill" role="tablist">
+                            <div class="demo-inline-spacing">
+                                <?php foreach ($map_prov as $index => $data) : ?>
+                                    <button type="button"
+                                        class="btn btn-sm map-btn shadow-lg <?php echo $index === 0 ? 'active' : ''; ?>" role="tab"
+                                        data-bs-toggle="tab" data-id="<?= htmlspecialchars($data['id']); ?>"
+                                        data-id_prov="<?= htmlspecialchars($data['id_prov']); ?>"
+                                        data-bs-target="#map-<?= htmlspecialchars($data['id']); ?>"
+                                        aria-controls="map-<?= htmlspecialchars($data['id']); ?>"
+                                        aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>">
+                                        <span class="tf-icons bx bx-map-pin"></span>&nbsp;
+                                        <?= htmlspecialchars($data['nama_provinsi']); ?>
+                                    </button>
+                                <?php endforeach; ?>
                             </div>
-
-                        </li>
-
-                    </ul>
-                    <button class="prev-slide slide-button material-symbols-rounded box-shadow">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button class="next-slide slide-button material-symbols-rounded box-shadow">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="row row-btn-vw-next text-center mt-4">
-                <div class="col">
-                    <a href="#" class="btn-blue">Lihat Selanjutnya</a>
+                        </ul>
+                        <?php foreach ($map_prov as $index => $data) : ?>
+                            <div class="tab-pane fade <?php echo $index === 0 ? 'show active' : ''; ?>"
+                                id="map-<?= htmlspecialchars($data['id']); ?>" role="tabpanel">
+                                <div class="error-message-container"></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>

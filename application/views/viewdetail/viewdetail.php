@@ -20,10 +20,12 @@
             <div class="col-lg-8 col-12">
                 <div class="webkit-right">
                     <div class="border-price">
-                        <span>Rp.</span><span class="font-weight-bold"><?= $data['harga'] . ' ' . $data['satuan']; ?></span>
+                        <span>Rp.</span>
+                        <span class="font-weight-bold nominal"><?= $data['harga']; ?></span>
+                        <span class="font-weight-bold satuan"><?= $data['satuan']; ?></span>
                     </div>
                 </div>
-                <div class="swiper pt-0">
+                <div class="swiper box-shadow-none pt-0">
                     <div class="swiper-wrapper">
                         <?php
                         $gambar_array = explode(',', $data['gambar']);
@@ -60,44 +62,10 @@
                 <div class="row mt-4">
                     <h3 class="font-weight-bold text-blue">Tentang</h3>
                     <p><?= $data['deskripsi']; ?></p>
-                    <h3 class="font-weight-bold text-blue">Promo</h3>
-                    <!-- <div class="row"> -->
-                    <p>Dapatkan promo untuk 10 pembeli pertama</p>
-                    <ul style="margin-left:1rem;">
-                        <li>
-                            AC 2 Unit Panasonic
-                        </li>
-                        <li>
-                            Canopi Carport
-                        </li>
-                        <li>
-                            Smart Door Lock
-                        </li>
-                        <li>
-                            Water Purification Sytem Panasonic
-                        </li>
-                    </ul>
-                    <!-- </div> -->
-                    <!-- <div class="row"> -->
-                    <p>PROMO KPR</p>
-                    <ul style="margin-left:1rem;">
-                        <li>
-                            FREE PPN
-                        </li>
-                        <li>
-                            FREE DP
-                        </li>
-                        <li>
-                            FREE biaya surat (AJB,BPHTB,BBN)
-                        </li>
-                        <li>
-                            FREE biaya KPR(Admin & Provinsi)
-                        </li>
-                        <li>
-                            Promo Terbatas
-                        </li>
-                    </ul>
-                    <!-- </div> -->
+                    <?php if ($data['nama_promo'] == ! null) { ?>
+                        <h3 class="font-weight-bold text-blue">Promo</h3>
+                        <?= $data['nama_promo']; ?>
+                    <?php } ?>
                 </div>
                 <div class="row mt-4">
                     <h3 class="font-weight-bold text-blue">Detail</h3>
@@ -269,10 +237,7 @@
                 </div>
                 <div class="row content-perum-po-la mb-5">
                     <h3 class="font-weight-bold text-blue">Poperti Lainnya</h3>
-                    <?php for ($i = 1; $i <= 3; $i++) { ?>
-
-                        <?= $properti_lainnya; ?>
-                    <?php } ?>
+                    <?= $properti_lainnya; ?>
                 </div>
             </div>
         </div>

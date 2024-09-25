@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-if (!function_exists('get_properti_populer')) {
-    function get_properti_populer()
+if (!function_exists('get_video_properti')) {
+    function get_video_properti()
     {
         // Load CodeIgniter instance to access the config
         $CI = &get_instance();
@@ -12,7 +12,7 @@ if (!function_exists('get_properti_populer')) {
         $api_key = $CI->config->item('api_key'); // Assuming it's stored in the config
 
         // API URL
-        $api_url = 'https://admin.kanpa.co.id/Api/properti';
+        $api_url = 'https://admin.kanpa.co.id/Api/reels';
 
         // Initialize cURL session
         $ch = curl_init();
@@ -39,12 +39,12 @@ if (!function_exists('get_properti_populer')) {
             return false;
         } else {
             // Decode the JSON response into an associative array
-            $properti_populer = json_decode($response, true);
+            $video_properti = json_decode($response, true);
 
             // Close cURL session
             curl_close($ch);
 
-            return $properti_populer;
+            return $video_properti;
         }
     }
 }

@@ -70,6 +70,11 @@ section {
     box-shadow: 0 5px 12px rgb(0 0 0 / 40%);
 }
 
+.box-shadow-none {
+
+    box-shadow: none;
+}
+
 .tittle {
     font-weight: bold;
     color: #1a44b2;
@@ -211,9 +216,9 @@ section {
     background-position: center;
 }
 
-.i-apartment-sm,
-.i-apartment {
-    background-image: url('../img/icon/apartment.svg');
+.i-ruko-sm,
+.i-ruko {
+    background-image: url('../img/icon/ruko.svg');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -246,6 +251,12 @@ section {
 
 .i-titip-jual {
     background-image: url('../img/icon/titip-jual.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.i-faq {
+    background-image: url('../img/icon/faq-02.svg');
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -367,17 +378,18 @@ section {
 
 .i-pilih-kota,
 .i-agen,
-.i-apartment,
+.i-ruko,
 .i-home,
 .i-join-kanpa,
 .i-kavling,
 .i-simulasi,
+.i-faq,
 .i-titip-jual {
     background-size: 37px;
 }
 
 .i-pilih-kota-sm,
-.i-apartment-sm,
+.i-ruko-sm,
 .i-kavling-sm,
 .i-home-sm {
     background-size: 20px;
@@ -396,6 +408,7 @@ section {
 }
 
 .ul-lans {
+    display: flex;
     list-style: none;
     justify-content: space-around;
     border: none;
@@ -411,6 +424,8 @@ section {
     overflow: hidden;
     padding: 0;
 }
+
+
 
 .li-city:hover .f-s-li-city {
     color: #1a44b2 !important;
@@ -431,12 +446,37 @@ section {
     background: none;
 }
 
+.li-city-sm {
+    margin: 5px;
+    width: 8rem;
+    align-items: center;
+    box-shadow: 0px 0px 4px 2px #ffffff, 3px 3px 4px 2px #00000029, inset 5px 4px 6px 0px #0000000f;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 0;
+}
+
 .radius-img-city {
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
     width: 14rem;
     position: relative;
     height: auto;
+}
+
+.radius-img-city-sm {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    width: 8rem;
+    position: relative;
+    height: auto;
+}
+
+.card-city {
+    background: #eef0f0e0;
+    padding: 12px 14px 2px 12px;
+    box-shadow: inset -9px 2px 6px 0px #ffffff, inset 3px 2px 3px 2px #00000024, 5px 4px 6px 0px #0000001f;
+    border-radius: 1rem;
 }
 
 .d-img-city {
@@ -504,7 +544,7 @@ section {
 
 .slider-wrapper .image-list {
     display: flex;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(50, 1fr);
     gap: 10px;
     font-size: 0;
     list-style: none;
@@ -583,6 +623,7 @@ section {
         margin-bottom: 0;
         scroll-snap-type: x mandatory;
         padding: 1rem;
+        min-height: 1rem;
     }
 
     .slider-wrapper .image-list .image-item {
@@ -758,15 +799,17 @@ iframe {
 .text-desk {
     position: absolute;
     bottom: 0;
-    background: #ffffff45;
-    font-weight: 600;
-    padding: 0.15rem 0.3rem;
+    background: #0000007d;
+    padding: 1px 8px;
     border-radius: 3px;
     font-size: 12px;
     cursor: pointer;
     z-index: 10;
-    height: 66px;
+    height: 44px;
     align-content: center;
+    width: -webkit-fill-available;
+    color: white;
+    line-height: 12px;
 }
 
 
@@ -898,16 +941,20 @@ span.select2-container {
 .i-g-text-l {
     background: white;
     border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    height: 50px;
 }
 
 .i-g-text-r {
     background: #1a44b2;
     border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
     color: white;
+    height: 50px;
+    width: 78px;
+    place-content: center;
 }
 
 .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
@@ -929,7 +976,8 @@ span.select2-container {
 }
 
 .bg-gardient {
-    background-image: linear-gradient(to top, #ffffff 67%, #ededed 0%);
+    background-image: linear-gradient(to top, #ffffff 66%, #ededed 66%);
+    min-height: 126rem;
 }
 
 .content-perum-po-la {
@@ -996,8 +1044,9 @@ span.select2-container {
 }
 
 .spn-vw-all {
-    font-size: small;
     display: none;
+    color: white;
+    font-size: small;
 }
 
 .d-table-caption {
@@ -1069,7 +1118,7 @@ span.select2-container {
     }
 
     .i-agen,
-    .i-apartment,
+    .i-ruko,
     .i-home,
     .i-join-kanpa,
     .i-kavling,
@@ -1083,7 +1132,7 @@ span.select2-container {
     }
 
     .mx-w-li {
-        max-width: 4rem;
+        min-width: 6rem;
     }
 
     .swiper-gap-city {
@@ -1206,6 +1255,12 @@ span.select2-container {
     .col-header-4,
     .spn-vw-all {
         display: block;
+    }
+
+    .ul-lans {
+        grid-template-columns: repeat(4, 2fr);
+        display: grid;
+        justify-content: center;
     }
 }
 
@@ -1363,8 +1418,51 @@ span.select2-container {
     padding-right: 0;
 }
 
+.i-btn-right-video {
+    display: none;
+}
+
+.i-bg-orange {
+    background: #ffc800a1;
+    padding: 5px 10px 4px 12px;
+    border: 2px solid #ffe587fa;
+    border-radius: 7px;
+    color: #1a44b2;
+    font-size: 30px;
+}
+
+.i-bg-white {
+    background: #ffffff96;
+    padding: 8px 14px 8px 14px;
+    border-radius: 7px;
+    color: #1a44b2;
+    font-size: 27px;
+}
+
 /* page-reel-video mobile */
-@media only screen and (min-width: 200px) and (max-width: 1024px) and (orientation: portrait) {
+
+.btn-share-video {
+    font-size: medium;
+    font-weight: bold;
+    color: #1a44b2;
+    background: #d9d9d9;
+    border: none;
+    padding: 5px 12px 5px 5px;
+    border-radius: 8px;
+    font-family: 'Ubuntu';
+}
+
+.ul-share-media {
+    background: white;
+    padding: 8px 0px;
+    border-radius: 10px;
+    position: fixed;
+    width: 17rem;
+    top: 16rem;
+    z-index: 3;
+}
+
+@media only screen and (min-width:200px) and (max-width: 768px) and (orientation: portrait) {
     .text-desk-review {
         position: absolute;
         bottom: 34px;
@@ -1415,22 +1513,31 @@ span.select2-container {
 
     .toprig {
         position: absolute;
-        bottom: 930%;
+        bottom: 85vh;
         left: 59%;
     }
 
     .topleft {
         position: absolute;
         left: 8%;
-        bottom: 873%;
+        bottom: 82vh;
         font-size: -webkit-xxx-large;
     }
 
     .bg-btn-back {
         color: #ffffff75;
+        font-size: smaller;
+    }
+
+    .i-btn-right-video {
+        display: flex;
+        position: absolute;
+        bottom: 267%;
+        left: 75%;
     }
 
 }
+
 
 /* //page agen */
 .bg-pg-marketing {
@@ -1599,12 +1706,12 @@ span.select2-container {
     }
 }
 
-/* page dijual */
+/* page properti dijual disewa all*/
 .content-fixed {
     position: sticky;
     display: block;
     top: 59px;
-    z-index: 1000;
+    z-index: 10;
     padding-left: 1%;
     background-color: #eef0f0;
     transition: background-color 0.5s ease, padding 0.5s ease, display 0.5s ease;
@@ -1643,7 +1750,166 @@ span.select2-container {
     height: auto;
 }
 
+#toggles {
+    position: fixed;
+    top: 4px;
+    left: 4px;
+}
+
+#toggleOn {
+    /* text-decoration: none;
+    font-variant: none;
+    font-weight: bold;
+    color: lightgray;
+    display: block;
+    float: left;
+    padding: 8px 22px;
+    background-color: black; */
+}
+
+#toggleOff {
+    /* text-decoration: none;
+    font-variant: none;
+    font-weight: bold;
+    color: lightgray;
+    display: block;
+    float: right;
+    padding: 8px 22px;
+    background-color: black;
+    margin-left: 3px; */
+}
+
+#rollbox {
+    /* height: 200px;
+    background-color: goldenrod; */
+    position: fixed;
+    margin-top: 40px;
+    top: 3rem;
+    z-index: 2;
+    transition: 600ms;
+}
+
+.rollNow {
+    width: 100%;
+    left: 10rem;
+}
+
+.rollNot {
+    width: 49%;
+    height: 0;
+    margin-left: -100%;
+    left: 0;
+}
+
+#bannerbox {
+    /* height: 200px;
+    background-color: maroon; */
+    position: fixed;
+    margin-top: 40px;
+    z-index: 1;
+    transition: 600ms;
+    right: 0;
+}
+
+.bannerOut {
+    /* width: 50%; */
+    margin-left: 100%;
+}
+
+.bannerIn {
+    /* width: 50%; */
+    margin-right: -100%;
+}
+
+.filter-city-active {
+    opacity: 0.2;
+    transition: 600ms;
+
+}
+
+.ul-gap-type-properti {
+    gap: 1rem;
+}
+
+.ul-trans-left {
+    left: -10%;
+    transition: 300ms;
+}
+
+.ul-trans-left.active {
+    left: 3%;
+    transition: 300ms;
+}
+
+.banner-properti {
+    box-shadow: 0 5px 12px rgb(0 0 0 / 40%);
+}
+
+.text-ubuntu {
+    font-family: 'Ubuntu';
+}
+
+.text-gray {
+    color: #848484;
+}
+
+.btn-back {
+    background: #1a44b2;
+    color: white;
+    border-radius: 16px;
+    padding: 5px;
+    margin-right: 1rem;
+}
+
+.posi-btn-jualsewa {
+    bottom: 61px;
+    position: relative;
+}
+
+.btn-penawaran {
+    padding: 3px 4rem;
+    font-size: xx-large;
+    border-radius: 6px;
+    background: white;
+}
+
+.btn-penawaran.dijual.active {
+    background: #ffc800;
+    color: #1a44b2;
+}
+
+.btn-penawaran.disewa.active {
+    background: #1a44b2;
+    color: #ffc800;
+}
+
+.bg-Disewa {
+    background: #1a44b2 !important;
+}
+
+.bg-Dijual {
+    background: #ffc800 !important;
+}
+
+.fz-text-penwaran {
+    font-size: 21px;
+}
+
 @media only screen and (min-width: 200px) and (max-width: 1024px) and (orientation: portrait) {
+    .ul-gap-type-properti {
+        gap: unset;
+    }
+
+    .ul-trans-left {
+        left: 0%;
+        transition: 300ms;
+    }
+
+    .ul-trans-left.active {
+        left: 0%;
+        transition: 300ms;
+    }
+
     .ul-type-properti {
         position: relative;
         display: flex;
@@ -1661,4 +1927,132 @@ span.select2-container {
         margin-top: 1rem !important;
     }
 
+    .fz-text-penwaran {
+        font-size: 11px;
+    }
+
+    .posi-btn-jualsewa {
+        bottom: -9px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+    }
+
+    .btn-penawaran {
+        padding: 5px 3rem;
+        font-size: medium;
+        border-radius: 6px;
+        background: white;
+        width: -webkit-fill-available;
+    }
+
+    #rollbox {
+        position: unset;
+        margin-top: 10px;
+    }
+
+    .rollNot {
+        width: auto;
+        height: auto;
+        margin-left: 0%;
+        left: 0;
+    }
+
+    .radius-img-city-sm {
+        display: none;
+    }
+
+    .menu-city {
+        display: none;
+    }
+
+    .slider-wrapper-city,
+    .slider-wrapper-populer {
+        min-width: unset;
+        padding: 0px;
+    }
+}
+
+/* page simulasi KPR */
+
+.bg-gray-1 {
+    background: #d9d9d9;
+}
+
+.b-amount-white {
+    background: white;
+    color: #1a44b2;
+    border: 5px #1a44b2 solid;
+    border-radius: 7px;
+    padding: 15px;
+    margin-top: 1rem;
+}
+
+.input-group-text {
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 11px;
+}
+
+.form-control {
+
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 0.5;
+    color: #1a44b2;
+
+    border-radius: 10px;
+}
+
+.ul-list-kpr {
+    background: #d9d9d9;
+    padding: 54px 32px;
+    border-radius: 1rem;
+    height: 29rem;
+}
+
+/* MAP */
+.map-btn {
+    background-color: white;
+    color: #1A44B2;
+    border: 1px solid #1A44B2;
+    border-radius: 7px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 12px;
+    padding: 3px 3px;
+}
+
+.map-btn:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: 1px solid white;
+}
+
+.map-btn.active {
+    background-color: #1A44B2;
+    color: white;
+    border-radius: 7px;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+.map-btn:last-child {
+    margin-right: 0;
+}
+
+.tab-pane svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tab-pane {
+    padding: 0;
+    margin: 0;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 1024px) and (orientation: portrait) {
+    .ul-list-kpr {
+        height: auto;
+    }
 }

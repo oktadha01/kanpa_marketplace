@@ -9,15 +9,15 @@ application/logs/*
 !application/*/.htaccess
 
 composer.lock
-kina3126_e-iuran.sql
-tests/mocks/database/ci_test.sqlite
+# kina3126_e-iuran.sql
+# tests/mocks/database/ci_test.sqlite
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 # /upload/
-/vr/
+# /vr/
 # /vendor/
 # /composer.json/
 # /composer.lock/

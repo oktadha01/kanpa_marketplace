@@ -21,14 +21,14 @@
 		border-radius: 10px;
 	}
 </style>
-<section id="contact" class="contact pb-0 pt-0">
+<section id="footer" class="contact pb-0">
 	<footer style="background: #033b6c;">
 		<button class="js-push-btn" style="display: none;">
 			Subscribe Push Messaging
 		</button>
 		<span class="device"></span>
 		<div>
-			<span class="logo">Kanzu Permai Abadi</span>
+			<span class="logo">KANPA</span>
 			<hr style="color: white;">
 		</div>
 		<div class="row">
@@ -43,9 +43,8 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-12">
 				<h4 class="title-h4">Info Kontak</h4>
-				<h6 class="text-h6"><i class="fa-solid fa-phone"></i> (024) 7590 1139</h6>
-				<h6 class="text-h6"><i class="fa-brands fa-whatsapp"></i> 0823-3350-7931</h6>
-				<h6 class="text-h6"><i class="fa-regular fa-envelope"></i> Kanzugroupindonesia@gmail.com</h6>
+				<h6 class="text-h6"><i class="fa-brands fa-whatsapp"></i> 0851-8305-4936</h6>
+				<h6 class="text-h6"><i class="fa-regular fa-envelope"></i> info@kanpa.co.id</h6>
 				<hr style="color: white;">
 				<div class="mb-2" style="text-align-last: justify;">
 					<a href="https://bit.ly/PT-KANPAwhatsapp" class="icon-info-kontak"><i class="fa-brands fa-whatsapp fa-beat"></i></a>
@@ -58,7 +57,7 @@
 		</div>
 		<div id="copyright">
 			<hr>
-			&copy; 2023 PT KANPA
+			&copy; 2024 KANPA
 		</div>
 
 	</footer>

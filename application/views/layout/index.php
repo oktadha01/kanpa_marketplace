@@ -11,65 +11,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="theme-color" content="#1a44b2"> <!-- Chrome Android -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Safari iOS -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a44b2"> <!-- Safari iOS -->
     <meta name="msapplication-navbutton-color" content="#1a44b2"> <!-- Microsoft Edge -->
 
-    <?php
-    $this->load->helper('domain_helper'); // Load the helper
-    $company_info = get_company_info($this->db); // Call the helper function
+    <!-- SEO -->
+    <!-- Primary Meta Tags -->
+    <title>Perumahan Terbaik 2024 | Rumah Idaman, Hunian Modern, dan Properti Investasi</title>
+    <meta name="description" content="Cari perumahan terbaru 2024 dengan lokasi strategis, harga terjangkau, dan desain modern. Temukan rumah idaman atau properti investasi Anda sekarang di kota-kota besar Indonesia. Mulai dari perumahan minimalis hingga cluster mewah." />
+    <meta name="keywords" content="perumahan terbaru 2024, rumah idaman, properti investasi, hunian modern, perumahan minimalis, cluster mewah, rumah murah, perumahan di Jakarta, rumah di kota besar, rumah siap huni" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Nama Anda atau Perusahaan Anda" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
 
-    if ($company_info !== null) {
-        $domain = $company_info['domain'];
-        $id_company = $company_info['id_company'];
-        $nm_company = $company_info['nm_company'];
-        $logo_company = $company_info['logo_company'];
-    } else {
-    }
-    ?>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
+    <meta property="og:description" content="Jelajahi perumahan terbaru 2024 dengan desain modern dan harga terjangkau. Temukan rumah idaman Anda di kota besar Indonesia." />
+    <meta property="og:image" content="https://www.example.com/path/to/image.jpg" />
+    <meta property="og:url" content="https://www.example.com" />
+    <meta property="og:site_name" content="Perumahan Idaman 2024" />
 
-    <!-- Meta untuk SEO -->
-    <meta content="index, follow" name="robots">
-    <meta content="website" property="og:type">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
+    <meta name="twitter:description" content="Temukan rumah idaman Anda di perumahan modern 2024. Strategis, terjangkau, dan siap huni." />
+    <meta name="twitter:image" content="https://www.example.com/path/to/image.jpg" />
+    <meta name="twitter:site" content="@yourusername" />
 
-    <?php if (isset($_description)) { ?>
-        <meta content="<?php echo $_description; ?>" name="description">
-        <meta content="<?php echo $_description; ?>" name="twitter:description">
-    <?php } else { ?>
-        <meta name="description" content="Cari Rumah di Semarang di Bawah Rp 200 Jt. Rumah minimalis terjangkau, termurah di semarang Bisa KPR Harga paling murah Lokasi strategis Proses mudah & cepat, perumahan subsidi griya kanzu kleco kaliabu, perumahan subsidi klecorejo kaliabu, rumah subsidi madiun, perumahan subsidi madiun, rumah subsidi klecorejo kaliabu">
-        <meta content="Rumah Dijual di Semarang | Harga Terbaru 2024" name="twitter:title" class="">
-        <meta content="Rumah Dijual di Semarang. Banyak pilihan ✔ Rentang harga beragam ✔ Desain menarik ✔ Pencarian mudah ✔" name="twitter:description">
-    <?php } ?>
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.example.com/current-page-url" />
 
-    <!-- <meta content="Rumah dijual di Semarang. Banyak pilihan ✔ Rentang harga beragam ✔ Desain menarik ✔ Pencarian mudah ✔" name="description"> -->
-    <meta content="@<?= str_replace('.co.id', '', $domain); ?>" name="twitter:site">
-    <meta content="@<?= str_replace('.co.id', '', $domain); ?>" name="twitter:creator">
-    <meta content="<?= str_replace('.co.id', '', $domain); ?>" property="og:site_name">
-    <?php if (isset($_url)) { ?>
-        <meta content="<?= $_url; ?>" property="og:url">
-    <?php } else { ?>
-        <meta content="<?= base_url(); ?>" property="og:url">
-    <?php } ?>
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.example.com/favicon.ico" />
 
-    <?php if (isset($_metafoto)) { ?>
-        <meta property="og:image" content="<?php echo base_url('upload'); ?>/<?php echo $_metafoto; ?>">
-    <?php } else {
-    }
-    ?>
-    <?php if (isset($_keyword)) { ?>
-        <meta name="keywords" content="<?= $_keyword; ?>">
-    <?php } else { ?>
-        <meta name="keywords" content="PT <?= str_replace('.co.id', '', $domain); ?>,PT Kanzu, PT Kanzu Permai Abadi, Kanzu Permai Abadi, <?= str_replace('.co.id', '', $domain); ?>,di jual rumah,rumah murah,perumahan murah,di jual rumah murah,perumahan di semarang, perumahan di kota semarang, perumahan di kab. semarang, perumahan di kabupaten semarang, perumahan di ungaran,perumahan di kab.kendal,perumahan di kabupaten kendal,perumahan di kendal,perumahan di bawen,perumahan di sukoharjo,perumahan di klaten,perumahan di madiun,perumahan di kota madiun,perumahan di caruban,perumahan murah di semarang, perumahan murah di kota semarang, perumahan murah di kab. semarang, perumahan murah di kabupaten semarang, perumahan murah di ungaran, perumahan murah di kab.kendal,perumahan murah di kabupaten kendal,perumahan murah di kendal,perumahan murah di bawen,perumahan murah di sukoharjo,perumahan murah di klaten,perumahan murah di madiun,perumahan murah di kota madiun,perumahan murah di caruban,perumahan murah subsidi, rumah murah di semarang, rumah murah di kota semarang, rumah murah di kab. semarang, rumah murah di kabupaten semarang, rumah murah di ungaran, rumah murah di kab.kendal,rumah murah di kabupaten kendal,rumah murah di kendal,rumah murah di bawen,rumah murah di sukoharjo,rumah murah di klaten,rumah murah di madiun,rumah murah di kota madiun,rumah murah di caruban,rumah murah subsidi, rumah murah komersil, jual rumah murah di semarang, jual rumah murah di kota semarang, jual rumah murah di kab. semarang, jual rumah murah di kabupaten semarang, jual rumah murah di ungaran, jual rumah murah di kab.kendal,jual rumah murah di kabupaten kendal,jual rumah murah di kendal,jual rumah murah di bawen,jual rumah murah di sukoharjo,jual rumah murah di klaten,jual rumah murah di madiun,jual rumah murah di kota madiun,jual rumah murah di caruban,jual rumah murah subsidi, jual rumah murah komersil, di jual rumah murah di semarang, di jual rumah murah di kota semarang, di jual rumah murah di kab. semarang, di jual rumah murah di kabupaten semarang, di jual rumah murah di ungaran, di jual rumah murah di kab.kendal,di jual rumah murah di kabupaten kendal,di jual rumah murah di kendal,di jual rumah murah di bawen,di jual rumah murah di sukoharjo,di jual rumah murah di klaten,di jual rumah murah di madiun,di jual rumah murah di kota madiun,di jual rumah murah di caruban,di jual rumah murah subsidi, di jual rumah murah komersil, perumahan subsidi di sukoharjo,rumah subsidi di sukoharjo,jual rumah subsidi di sukoharjo,di jual rumah subsidi di sukoharjo,perumahan subsidi di klaten,rumah subsidi di klaten,jual rumah subsidi di klaten,di jual rumah subsidi di klaten,perumahan subsidi di caruban,rumah subsidi di caruban,jual rumah subsidi di caruban,di jual rumah subsidi di caruban">
-    <?php
-    }
-    ?>
-
-
-    <?php if (isset($_title)) { ?>
-        <meta content="<?= $_title; ?>" name="twitter:title" class="">
-        <title><?= $_title; ?></title>
-    <?php } else { ?>
-        <title>Rumah Murah di Semarang di Bawah Rp 200 Jt Terlengkap | <?= $domain; ?></title>
-    <?php } ?>
 
     <style>
         .opacity-body {
@@ -82,7 +57,7 @@
         }
     </style>
     <!-- Favicons -->
-    <link href="<?php echo base_url('assets'); ?>/img/<?= $logo_company; ?>-round.png" rel="icon">
+    <!-- <link href="<?php echo base_url('assets'); ?>/img/<?= $logo_company; ?>-round.png" rel="icon"> -->
 
     <!-- Google Fonts -->
 

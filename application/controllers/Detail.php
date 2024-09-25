@@ -69,8 +69,11 @@ class Detail extends CI_Controller
     public function perum()
     {
         $perum = preg_replace("![^a-z0-9]+!i", " ", $this->uri->segment(3));
-        $lt = $this->uri->segment(4);
-        $lb = $this->uri->segment(5);
+        $lt = $this->uri->segment(5);
+        $lb = $this->uri->segment(6);
+        // $perum = 'Alton Green House';
+        // $lt = '120';
+        // $lb = '140';
 
         // Fetch the properties based on the parameters
         // Extract a city name from the properties if available
@@ -82,6 +85,7 @@ class Detail extends CI_Controller
             $nama_kota = $first_property['nama_kota'] ?? '';
             $id_properti = $first_property['id_properti'] ?? '';
         }
+        // echo $nama_kota;
 
         // Fetch related properties based on the city name
         $data['properti_lainnya'] = $this->properti_lainnya($nama_kota, $id_properti);
@@ -95,18 +99,97 @@ class Detail extends CI_Controller
         $this->load->view('layout/index', $data);
     }
 
-    public function get_properti($perum, $lt, $lb)
+    // public function get_properti($perum, $lt = null, $lb = null)
+    // {
+    //     // Fetch popular properties using the helper function
+    //     $detail_properti = get_properti_populer();
+
+    //     if (is_array($detail_properti)) {
+    //         // Filter properties based on $perum first
+    //         $filtered_properties = array_filter($detail_properti, function ($property) use ($perum) {
+    //             return strtolower($property['judul_properti']) == strtolower($perum);
+    //         });
+
+    //         // If $lt and $lb are provided, apply further filtering
+    //         if (!empty($lt) && !empty($lb)) {
+    //             $filtered_properties = array_filter($filtered_properties, function ($property) use ($lt, $lb) {
+    //                 return $property['luas_tanah'] == $lt && $property['luas_bangunan'] == $lb;
+    //             });
+
+    //             // If no properties match the $lt and $lb filters, redirect to the $perum-only URL
+    //             if (empty($filtered_properties)) {
+    //                 // Build the new URL without $lt and $lb segments
+    //                 $nm_perum = preg_replace("![^a-z0-9]+!i", "-", $perum);
+    //                 $new_url = base_url("Detail/perum/{$nm_perum}");
+
+    //                 // Redirect to the new URL
+    //                 redirect($new_url);
+    //                 return;  // Ensure no further code is executed after redirect
+    //             }
+    //         }
+
+    //         // Group by id_properti
+    //         $grouped_properties = [];
+    //         foreach ($filtered_properties as $property) {
+    //             $grouped_properties[$property['id_properti']] = $property;
+    //             $nama_kota = $property['nama_kota'];
+    //             $id_properti = $property['id_properti'];
+    //             // Fetch other properties based on the city name
+    //             $this->properti_lainnya($nama_kota, $id_properti);
+    //         }
+
+    //         // Return the grouped properties
+    //         return $grouped_properties;
+    //     }
+
+    //     // Return empty array if no properties were found
+    //     return [];
+    // }
+    public function get_properti($perum, $lt = null, $lb = null)
     {
         // Fetch popular properties using the helper function
         $detail_properti = get_properti_populer();
 
         if (is_array($detail_properti)) {
-            // Filter properties based on the passed parameters
-            $filtered_properties = array_filter($detail_properti, function ($property) use ($perum, $lt, $lb) {
-                return strtolower($property['judul_properti']) == strtolower($perum) &&
-                    $property['luas_tanah'] == $lt &&
-                    $property['luas_bangunan'] == $lb;
+            // Filter properties based on $perum first
+            $filtered_properties = array_filter($detail_properti, function ($property) use ($perum) {
+                return strtolower($property['judul_properti']) == strtolower($perum);
             });
+
+            // If $lt and $lb are provided, apply further filtering
+            if (!empty($lt) && !empty($lb)) {
+                $filtered_properties = array_filter($filtered_properties, function ($property) use ($lt, $lb) {
+                    return $property['luas_tanah'] == $lt && $property['luas_bangunan'] == $lb;
+                });
+            }
+
+            // If $lt and $lb are null or no properties match, filter based on $perum and get the smallest building area
+            if (empty($lt) && empty($lb) || empty($filtered_properties)) {
+                // Filter properties by $perum and find the smallest building area
+                $matching_properties = array_filter($detail_properti, function ($property) use ($perum) {
+                    return strtolower($property['judul_properti']) == strtolower($perum);
+                });
+
+                // Find the property with the smallest building area
+                $smallest_building_property = null;
+                foreach ($matching_properties as $property) {
+                    if ($smallest_building_property === null || $property['luas_bangunan'] < $smallest_building_property['luas_bangunan']) {
+                        $smallest_building_property = $property;
+                    }
+                }
+
+                // If a property with the smallest building area is found, build the new URL
+                if ($smallest_building_property) {
+                    $nm_perum = preg_replace("![^a-z0-9]+!i", "-", $perum);
+                    $land_area = $smallest_building_property['luas_tanah'];
+                    $building_area = $smallest_building_property['luas_bangunan'];
+                    $new_url = base_url("Detail/perum/{$nm_perum}/tipe/{$land_area}/{$building_area}");
+
+                    // Redirect to the new URL
+                    redirect($new_url);
+                    return;  // Ensure no further code is executed after redirect
+                }
+            }
 
             // Group by id_properti
             $grouped_properties = [];
@@ -146,13 +229,13 @@ class Detail extends CI_Controller
             11 => 'November',
             12 => 'Desember'
         ];
-
         if (is_array($other_properti)) {
             // Filter properties based on the city name and exclude the one with the given id_properti
             $filtered_properties = array_filter($other_properti, function ($property) use ($nama_kota, $id_properti) {
                 return strtolower($property['nama_kota']) == strtolower($nama_kota) && $property['id_properti'] != $id_properti;
             });
 
+            // $properti_lainnya_html = $id_properti. $nama_kota;
             // Group by id_properti
             $grouped_properties = [];
             $properti_lainnya_html = '';
@@ -170,15 +253,19 @@ class Detail extends CI_Controller
                 $firstGambar = $gambarArray[0];
                 $dateString = $property['dibuat'];
                 $date = DateTime::createFromFormat('d-m-Y', $dateString);
-                $day = $date->format('d');
-                $month = $bulanIndonesia[(int)$date->format('m')];
-                $year = $date->format('Y');
-
-                $formattedDate = "$day $month $year";
+                if ($date) {
+                    $day = $date->format('d');
+                    $month = $bulanIndonesia[(int)$date->format('m')];
+                    $year = $date->format('Y');
+                    $formattedDate = "$day $month $year";
+                } else {
+                    $formattedDate = "Unknown Date";
+                }
 
                 // Generate HTML for each property
                 $properti_lainnya_html .= '<div class=" col-6 p-2 pb-3">' .
                     '<div class="box-shadow border">' .
+                    '<a href="' . base_url('Detail/perum/') . $property['judul_properti'] . '/tipe/' . $property['luas_tanah'] . '/' . $property['luas_bangunan'] . '" class="text-black">' .
                     '<div class="perum-po-content">' .
                     '<img src="https://admin.kanpa.co.id/upload/gambar_properti/' . $firstGambar . '" class="img-produk">' .
                     '</div>' .
@@ -196,6 +283,7 @@ class Detail extends CI_Controller
                     '<li><span class="font-weight-bold">KT</span> : ' . $property['jml_kamar'] . '</li>' .
                     '<li><span class="font-weight-bold">Km</span> : ' . $property['jml_kamar_mandi'] . '</li>' .
                     '</ul>' .
+                    '</a>' .
                     '</div>' .
                     '</div>' .
                     '</div>';
@@ -204,6 +292,7 @@ class Detail extends CI_Controller
             // Return the generated HTML
             return $properti_lainnya_html;
         }
+        // return $properti_lainnya_html;
 
         // Return an empty string if no properties were found
         return '';
