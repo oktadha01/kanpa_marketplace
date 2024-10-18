@@ -15,10 +15,10 @@
             <li><a class="nav-link scrollto" href="<?php echo base_url('Properti/disewa/'); ?>#disewa">Disewa</a></li>
             <li><a class="nav-link scrollto" href="<?php echo base_url('Properti/proyek_baru/perumahan/'); ?>#proyek_baru">Proyek Baru</a></li>
             <li><a class="nav-link scrollto" href="<?php echo base_url('Simulasi_KPR'); ?>#kpr">KPR</a></li>
+            <li><a class="nav-link scrollto" href="<?php echo base_url('Artikel'); ?>#artikel">Artikel</a></li>
             <!-- <li><a class="nav-link scrollto" href="<?php echo base_url('Perumahan'); ?>#produk">Cari Agen</a></li> -->
             <!-- <li><a class="nav-link scrollto" href="<?php echo base_url('Perumahan'); ?>#produk">Titip Properti</a></li> -->
             <!-- <li><a class="nav-link scrollto" href="<?php echo base_url('Perumahan'); ?>#produk">FAQ</a></li> -->
-            <!-- <li><a id="btn-menu-news" class="nav-link scrollto" href="<?php echo base_url('Artikel'); ?>#berita">Artikel</a></li> -->
          </ul>
          <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->

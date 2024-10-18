@@ -15,35 +15,83 @@
     <meta name="msapplication-navbutton-color" content="#1a44b2"> <!-- Microsoft Edge -->
 
     <!-- SEO -->
+    <?php
+    function getCurrentUrl()
+    {
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        return $url;
+    }
+
+    ?>
     <!-- Primary Meta Tags -->
-    <title>Perumahan Terbaik 2024 | Rumah Idaman, Hunian Modern, dan Properti Investasi</title>
-    <meta name="description" content="Cari perumahan terbaru 2024 dengan lokasi strategis, harga terjangkau, dan desain modern. Temukan rumah idaman atau properti investasi Anda sekarang di kota-kota besar Indonesia. Mulai dari perumahan minimalis hingga cluster mewah." />
-    <meta name="keywords" content="perumahan terbaru 2024, rumah idaman, properti investasi, hunian modern, perumahan minimalis, cluster mewah, rumah murah, perumahan di Jakarta, rumah di kota besar, rumah siap huni" />
+    <?php if (isset($_title)) { ?>
+        <title><?= $_title; ?></title>
+    <?php } else { ?>
+        <title>Perumahan Terbaik 2024 | Jual Rumah, Properti, Ruko, dan Kavling | Kanpa.co.id</title>
+    <?php } ?>
+
+    <?php if (isset($_description)) { ?>
+        <meta name="description" content="<?= $_description; ?>" />
+    <?php } else { ?>
+        <meta name="description" content="Cari properti idaman Anda di seluruh Indonesia hanya di Kanpa.co.id! Jual dan sewa rumah, perumahan, ruko, dan kavling dengan harga terbaik. Temukan hunian dan properti investasi sekarang!" />
+    <?php } ?>
+    <?php if (isset($_keyword)) { ?>
+        <meta name="keywords" content="<?= $_keyword; ?>" />
+    <?php } else { ?>
+        <meta name="keywords" content="jual rumah, sewa rumah, properti 2024, perumahan, ruko, kavling, properti Indonesia, jual properti, sewa properti, real estate Indonesia, rumah murah, hunian modern, properti investasi, kanpa.co.id" />
+    <?php } ?>
+
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Nama Anda atau Perusahaan Anda" />
+    <meta name="author" content="KANPA" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
-    <meta property="og:description" content="Jelajahi perumahan terbaru 2024 dengan desain modern dan harga terjangkau. Temukan rumah idaman Anda di kota besar Indonesia." />
-    <meta property="og:image" content="https://www.example.com/path/to/image.jpg" />
-    <meta property="og:url" content="https://www.example.com" />
-    <meta property="og:site_name" content="Perumahan Idaman 2024" />
+    <?php if (isset($_title_fb)) { ?>
+        <meta property="og:title" content="<?= $_title_fb; ?>" />
+    <?php } else { ?>
+        <meta property="og:title" content="Marketplace Jual & Sewa Properti - Rumah, Perumahan, Ruko, Kavling Terbaik 2024 | Kanpa.co.id" />
+    <?php } ?>
+    <?php if (isset($_description_fb)) { ?>
+        <meta property="og:description" content="<?= $_description_fb; ?>" />
+    <?php } else { ?>
+        <meta property="og:description" content="Temukan berbagai pilihan properti terbaik di Kanpa.co.id untuk dijual atau disewakan. Marketplace terpercaya untuk rumah, perumahan, ruko, dan kavling dengan harga terbaik." />
+    <?php } ?>
+    <?php if (isset($_meta_foto)) { ?>
+        <meta property="og:image" content="<?= $_meta_foto; ?>" />
+    <?php } else { ?>
+        <meta property="og:image" content="<?php echo base_url('assets'); ?>/img/icon/kanpa-logoweb-putih.png" />
+    <?php } ?>
+
+
+    <meta property="og:url" content="<?= getCurrentUrl(); ?>" />
+    <meta property="og:site_name" content="Kanpa.co.id - Marketplace Properti Terpercaya" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
-    <meta name="twitter:description" content="Temukan rumah idaman Anda di perumahan modern 2024. Strategis, terjangkau, dan siap huni." />
-    <meta name="twitter:image" content="https://www.example.com/path/to/image.jpg" />
-    <meta name="twitter:site" content="@yourusername" />
+    <?php if (isset($_title_tw)) { ?>
+        <meta name="twitter:title" content="<?= $_title_tw; ?>" />
+    <?php } else { ?>
+        <meta name="twitter:title" content="Marketplace Jual & Sewa Properti - Rumah, Perumahan, Ruko, Kavling Terbaik 2024 | Kanpa.co.id" />
+    <?php } ?>
+    <?php if (isset($_description_tw)) { ?>
+        <meta name="twitter:description" content="<?= $_description_tw; ?>" />
+    <?php } else { ?>
+        <meta name="twitter:description" content="Cari properti ideal Anda dengan mudah di Kanpa.co.id. Jual dan sewa rumah, perumahan, ruko, dan kavling di seluruh Indonesia." />
+    <?php } ?>
+    <?php if (isset($_meta_foto)) { ?>
+        <meta name="twitter:image" content="<?= $_meta_foto; ?>" />
+    <?php } else { ?>
+        <meta name="twitter:image" content="<?php echo base_url('assets'); ?>/img/icon/kanpa-logoweb-putih.png" />
+    <?php } ?>
+
+
+    <meta name="twitter:site" content="@kanpa" />
 
     <!-- Canonical Link -->
-    <link rel="canonical" href="https://www.example.com/current-page-url" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://www.example.com/favicon.ico" />
+    <link rel="canonical" href="<?= getCurrentUrl(); ?>" />
 
 
     <style>
@@ -57,7 +105,7 @@
         }
     </style>
     <!-- Favicons -->
-    <!-- <link href="<?php echo base_url('assets'); ?>/img/<?= $logo_company; ?>-round.png" rel="icon"> -->
+    <link href="<?php echo base_url('assets'); ?>/img/icon/kanpa-logoweb-putih.png" rel="icon">
 
     <!-- Google Fonts -->
 

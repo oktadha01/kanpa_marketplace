@@ -84,14 +84,24 @@ class Detail extends CI_Controller
             $first_property = reset($data['properti']);
             $nama_kota = $first_property['nama_kota'] ?? '';
             $id_properti = $first_property['id_properti'] ?? '';
+            $nama_type = $first_property['nama_type'] ?? '';
+            $area_terdekat = $first_property['area_terdekat'] ?? '';
         }
         // echo $nama_kota;
-
+        // meta primary
+        $data['_title'] = 'Dijual ' . $nama_type . ' ' . $perum . ' di ' . $nama_kota . ' - Dekat ' . $area_terdekat . ' | Kanpa.co.id</title>';
+        $data['_description'] = 'Temukan ' . $nama_type . ' ' . $perum . ' di ' . $nama_kota . ' dengan harga terbaik. Lokasi strategis dekat ' . $area_terdekat . '. Jual beli properti mudah hanya di Kanpa.co.id.';
+        $data['_keyword'] = 'Dijual ' . $nama_type . ' ' . $perum . ', ' . $nama_type . ' di ' . $nama_kota . ', rumah di ' . $nama_kota . ', rumah dekat ' . $area_terdekat . ', rumah dijual ' . $nama_kota . ', jual rumah, beli rumah, properti 2024, rumah murah, investasi properti, hunian modern, properti di ' . $nama_kota . ', jual properti, properti dekat ' . $area_terdekat . '';
+        // meta facebook
+        $data['_title_fb'] = 'Dijual ' . $nama_type . ' ' . $perum . ' di ' . $nama_kota . ' - Area Terdekat ' . $area_terdekat . ' | Kanpa.co.id';
+        $data['_description_fb'] = 'Temukan rumah ideal di ' . $nama_type . ' ' . $perum . ', ' . $nama_kota . '. Lokasi strategis dan harga terjangkau. Info lengkap properti tersedia di Kanpa.co.id.';
+        // meta tiwitter
+        $data['_title_tw'] = 'Dijual ' . $nama_type . ' ' . $perum . ' di ' . $nama_kota . ' - Dekat ' . $area_terdekat . ' | Kanpa.co.id';
+        $data['_description_tw'] = 'Cari properti di ' . $perum . ', ' . $nama_kota . '. Harga terbaik dan lokasi dekat ' . $area_terdekat . '. Info properti lengkap hanya di Kanpa.co.id.';
+        // $data['_meta_foto'] = '';
         // Fetch related properties based on the city name
         $data['properti_lainnya'] = $this->properti_lainnya($nama_kota, $id_properti);
 
-        $data['_title'] = 'Di Jual Rumah Murah';
-        $data['_url'] = base_url('Perumahan');
         $data['_script'] = 'viewdetail/viewdetail_js';
         $data['_view'] = 'viewdetail/viewdetail';
 
@@ -99,52 +109,6 @@ class Detail extends CI_Controller
         $this->load->view('layout/index', $data);
     }
 
-    // public function get_properti($perum, $lt = null, $lb = null)
-    // {
-    //     // Fetch popular properties using the helper function
-    //     $detail_properti = get_properti_populer();
-
-    //     if (is_array($detail_properti)) {
-    //         // Filter properties based on $perum first
-    //         $filtered_properties = array_filter($detail_properti, function ($property) use ($perum) {
-    //             return strtolower($property['judul_properti']) == strtolower($perum);
-    //         });
-
-    //         // If $lt and $lb are provided, apply further filtering
-    //         if (!empty($lt) && !empty($lb)) {
-    //             $filtered_properties = array_filter($filtered_properties, function ($property) use ($lt, $lb) {
-    //                 return $property['luas_tanah'] == $lt && $property['luas_bangunan'] == $lb;
-    //             });
-
-    //             // If no properties match the $lt and $lb filters, redirect to the $perum-only URL
-    //             if (empty($filtered_properties)) {
-    //                 // Build the new URL without $lt and $lb segments
-    //                 $nm_perum = preg_replace("![^a-z0-9]+!i", "-", $perum);
-    //                 $new_url = base_url("Detail/perum/{$nm_perum}");
-
-    //                 // Redirect to the new URL
-    //                 redirect($new_url);
-    //                 return;  // Ensure no further code is executed after redirect
-    //             }
-    //         }
-
-    //         // Group by id_properti
-    //         $grouped_properties = [];
-    //         foreach ($filtered_properties as $property) {
-    //             $grouped_properties[$property['id_properti']] = $property;
-    //             $nama_kota = $property['nama_kota'];
-    //             $id_properti = $property['id_properti'];
-    //             // Fetch other properties based on the city name
-    //             $this->properti_lainnya($nama_kota, $id_properti);
-    //         }
-
-    //         // Return the grouped properties
-    //         return $grouped_properties;
-    //     }
-
-    //     // Return empty array if no properties were found
-    //     return [];
-    // }
     public function get_properti($perum, $lt = null, $lb = null)
     {
         // Fetch popular properties using the helper function
@@ -265,7 +229,7 @@ class Detail extends CI_Controller
                 // Generate HTML for each property
                 $properti_lainnya_html .= '<div class=" col-6 p-2 pb-3">' .
                     '<div class="box-shadow border">' .
-                    '<a href="' . base_url('Detail/perum/') . $property['judul_properti'] . '/tipe/' . $property['luas_tanah'] . '/' . $property['luas_bangunan'] . '" class="text-black">' .
+                    '<a href="' . base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $property['judul_properti']) . '/tipe/' . $property['luas_tanah'] . '/' . $property['luas_bangunan'] . '" class="text-black">' .
                     '<div class="perum-po-content">' .
                     '<img src="https://admin.kanpa.co.id/upload/gambar_properti/' . $firstGambar . '" class="img-produk">' .
                     '</div>' .
@@ -274,7 +238,7 @@ class Detail extends CI_Controller
                     '<span class="title-new-proyek-sm">' . $property['nama_type'] . '</span>' .
                     '<span class="title-tayang-sm">Tayang sejak ' . $formattedDate . '</span>' .
                     '</div>' .
-                    '<span class="title-price mt-2">Rp ' . $property['harga'] . ' ' . $property['satuan'] . '</span>' .
+                    '<span class="title-price mt-2">Rp ' . $property['harga'] . ' ' . $property['satuan'] . '-an</span>' .
                     '<h6 class=" title-properti font-weight-bold mb-0">' . $property['judul_properti'] . '</h6>' .
                     '<span class="font-weight-bold title-address-sm"><i class="bi bi-geo-alt"></i> ' . $property['alamat'] . '</span>' .
                     '<ul class="d-flex ul-detail-sm mt-2 mb-0">' .
@@ -303,14 +267,14 @@ class Detail extends CI_Controller
 
 
 
-    function detail_tipe()
-    {
-        $luas_bangunan =  $this->input->post('luas-bangunan');
-        $luas_tanah =  $this->input->post('luas-tanah');
-        $nm_perum =  $this->input->post('nm-perum');
-        $data['_view'] = 'detail/detail_tipe';
-        $data['data_detail_tipe'] = $this->m_detail->m_data_detail_tipe($nm_perum, $luas_bangunan, $luas_tanah);
-        $data['data_view'] = $this->m_detail->m_view_tipe($nm_perum, $luas_bangunan, $luas_tanah);
-        $this->load->view('detail/detail_tipe', $data);
-    }
+    // function detail_tipe()
+    // {
+    //     $luas_bangunan =  $this->input->post('luas-bangunan');
+    //     $luas_tanah =  $this->input->post('luas-tanah');
+    //     $nm_perum =  $this->input->post('nm-perum');
+    //     $data['_view'] = 'detail/detail_tipe';
+    //     $data['data_detail_tipe'] = $this->m_detail->m_data_detail_tipe($nm_perum, $luas_bangunan, $luas_tanah);
+    //     $data['data_view'] = $this->m_detail->m_view_tipe($nm_perum, $luas_bangunan, $luas_tanah);
+    //     $this->load->view('detail/detail_tipe', $data);
+    // }
 }

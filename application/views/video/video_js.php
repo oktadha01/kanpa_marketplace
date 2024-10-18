@@ -123,6 +123,7 @@
                 if (isFirstLoad) {
                     isFirstLoad = false;
                 }
+                share();
                 loadingMoreData = false; // Reset the loading flag
             },
             error: function(xhr, status, error) {
@@ -251,4 +252,27 @@
     }
 
     initialize();
+
+    function share() {
+        const url = window.location.href;
+        const title = document.title;
+        $('.copy-link').on('click', function(e) {
+            console.log('copy link');
+            e.preventDefault();
+
+            const url = "your-url-here"; // Replace with the actual URL you want to copy
+
+            navigator.clipboard.writeText(url).then(() => {
+                const $copyLinkLi = $(this);
+                $copyLinkLi.addClass('tooltip-active').attr('data-tooltip', "Link Disalin!");
+
+                // Restore the tooltip after 2 seconds
+                setTimeout(() => {
+                    $copyLinkLi.removeClass('tooltip-active').attr('data-tooltip', "Salin Link");
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy the link: ", err);
+            });
+        });
+    }
 </script>

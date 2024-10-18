@@ -286,9 +286,15 @@ class Properti extends CI_Controller
                     $dateString = $property['dibuat'];
                     $date = DateTime::createFromFormat('d-m-Y', $dateString);
                     $formattedDate = $date ? $date->format('d') . ' ' . $bulanIndonesia[(int)$date->format('m')] . ' ' . $date->format('Y') : '';
+					$html_ribbon = '';
+                    
+                    if ($property['status'] == 'Subsidi') {
+                        $html_ribbon = '<div class="ribbon ribbon-top-left"><span>' . $property['status'] . '</span></div>';
+                    }
 
                     $property_data = [
                         'id_properti' => $property['id_properti'],
+                        'status' => $html_ribbon,
                         'gambar_properti' => $firstGambar,
                         'tanggal' => $formattedDate,
                         'judul_properti' => $property['judul_properti'],
@@ -302,6 +308,7 @@ class Properti extends CI_Controller
                         'jml_kamar' => $property['jml_kamar'],
                         'jml_kamar_mandi' => $property['jml_kamar_mandi'],
                         'foto_profil' => $property['foto_profil'],
+                        'no_tlp' => $property['no_tlp'],
                         'nama_agent' => $property['nama_agent']
                     ];
 
@@ -348,11 +355,12 @@ class Properti extends CI_Controller
             '<a href="' . base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $data_properti['judul_properti']) . '/tipe/' . $data_properti['luas_tanah'] . '/' . $data_properti['luas_bangunan'] . '">' .
             '<div class="populer-content">' .
             '<img src="https://admin.kanpa.co.id/upload/gambar_properti/' . $data_properti['gambar_properti'] . '" class="img-produk-sw">' .
+            $data_properti['status'] .
             '</div>' .
             '<div class="bg-light border p-2">' .
             '<span class="title-new-proyek bg-' . $data_properti['jenis_penawaran'] . '">' . $data_properti['jenis_penawaran'] . '</span>' .
             '<span class="title-tayang">Tayang sejak ' . $data_properti['tanggal'] . '</span>' .
-            '<h3 class="title-price">Rp ' . $data_properti['harga'] . ' ' . $data_properti['satuan'] . '</h3>' .
+            '<h3 class="title-price">Rp ' . $data_properti['harga'] . ' ' . $data_properti['satuan'] . '-an</h3>' .
             '<h5 class=" title-properti font-weight-bold text-black">' . $data_properti['judul_properti'] . '</h5>' .
             '<h6 class="font-weight-bold title-address"><i class="bi bi-geo-alt"></i> ' . $data_properti['alamat'] . '</h6>' .
             '<ul class="d-flex ul-detail mt-3">' .
@@ -369,7 +377,9 @@ class Properti extends CI_Controller
             '<h5 class="font-weight-bold title-name m-0">' . $data_properti['nama_agent'] . '</h5>' .
             '<p class="small title-address m-0">Ungaran Barat</p>' .
             '</div>' .
+            '<a href="https://wa.me/' . $data_properti['no_tlp'] . '?text=hallo kak ' . $data_properti['nama_agent'] . ', Saya ingin tahu lebih lanjut tentang ' . $data_properti['nama_type'] . ' ' . $data_properti['judul_properti'] . ' ..." target="_blank">' .
             '<i class="bi bi-whatsapp i-wa-marketing"></i>' .
+            '</a>' .
             '</div>' .
             '</div>' .
             '</div>' .

@@ -80,9 +80,9 @@
 
     var nominal = $('.nominal').text();
     var satuan = $('.satuan').text();
-    if (satuan == 'M') {
+    if (satuan == 'M-an') {
         nominal = parseFloat(nominal) * m;
-    } else if (satuan == 'Jt') {
+    } else if (satuan == 'Jt-an') {
         nominal = parseFloat(nominal) * jt;
     }
 

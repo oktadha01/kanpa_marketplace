@@ -9,6 +9,7 @@
         border-radius: 0;
     } */
 </style>
+
 <main id="main" class="bg-gardient">
 
     <section id="home" class=" container mt-4">
@@ -22,7 +23,7 @@
                     <div class="border-price">
                         <span>Rp.</span>
                         <span class="font-weight-bold nominal"><?= $data['harga']; ?></span>
-                        <span class="font-weight-bold satuan"><?= $data['satuan']; ?></span>
+                        <span class="font-weight-bold satuan"><?= $data['satuan']; ?>-an</span>
                     </div>
                 </div>
                 <div class="swiper box-shadow-none pt-0">
@@ -242,4 +243,36 @@
             </div>
         </div>
     </section>
+    <div class="d-flex kontakas kontak-fixed box-shadow">
+        <img src="https://admin.kanpa.co.id/upload/agent/<?= $data['foto_profil']; ?>" class="img-marketing">
+        <div class="d-block">
+            <h5 class="font-weight-bold title-name m-0"><?= $data['nama_agent']; ?></h5>
+            <p class="small title-address m-0">Property Advisor</p>
+        </div>
+        <a href="https://wa.me/<?= $data['no_tlp']; ?>?text=hallo kak <?= $data['nama_agent']; ?>, Saya ingin tahu lebih lanjut tentang <?= $data['nama_type']; ?> <?= $data['judul_properti']; ?> ..." target="_blank">
+            <i class="bi bi-whatsapp i-wa-marketing"></i>
+        </a>
+    </div>
 </main>
+<!-- <ul class="ul-share-media d-flex justify-content-around list-none box-shadow2">
+    <li class="d-grid place-items-center text-align-center">
+        <i class="fa-solid fa-link bg-i box-shadow2"></i>
+        <span class="span-text-share">Salin Link</span>
+    </li>
+    <li class="d-grid place-items-center text-algin-center">
+        <i class="fa-brands fa-whatsapp bg-i box-shadow2"></i>
+        <span class="span-text-share">whatsapp</span>
+    </li>
+    <li class="d-grid place-items-center text-algin-center">
+        <i class="fa-brands fa-facebook-messenger bg-i box-shadow2"></i>
+        <span class="span-text-share">facebook</span>
+    </li>
+    <li class="d-grid place-items-center text-algin-center">
+        <i class="fa-brands fa-facebook bg-i box-shadow2"></i>
+        <span class="span-text-share">facebook</span>
+    </li>
+    <li class="d-grid place-items-center text-algin-center">
+        <i class="fa-brands fa-telegram bg-i box-shadow2"></i>
+        <span class="span-text-share">telegram</span>
+    </li>
+</ul> -->

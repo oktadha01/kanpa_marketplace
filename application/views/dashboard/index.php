@@ -1,48 +1,23 @@
 <main id="main">
     <section id="home" class=" container mt-4">
         <div class="text-center">
-            <h1 class="tittle">Jual Beli Rumah & Properti</h1>
+            <h1 class="tittle">Jual & Sewa Properti</h1>
         </div>
+        
         <div class="row p-2">
             <div class="col-lg-8 col-md-8 col-12 ">
                 <div class="swiper pt-0">
                     <div id="banner-full" class="swiper-wrapper">
-                        <!-- <div class="swiper-slide">
-                            <img src="<?= base_url('assets/img/banner/'); ?>header-september-24-kanpa.jpg" class="img-fluid" alt="">
-                        </div> -->
-                        <!-- <div class="swiper-slide">
-                            <img src="<?= base_url('assets/img/banner/'); ?>header-september-24-KANPA-S.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?= base_url('assets/img/banner/'); ?>promo-utj-tamankautsar.jpg" class="img-fluid" alt="">
-                        </div> -->
-                        <!-- <div class="swiper-slide">
-                            <img src="https://www.jakartanotebook.com/images/banners/2024/07/Artboard_Copy_10.jpg" class="img-fluid" alt="">
-                        </div> -->
                     </div>
                     <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev btn-swiper-banner"></div>
+                    <div class="swiper-button-next btn-swiper-banner"></div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-12 ">
                 <div id="banner-split" class="row mt-1">
-                    <!-- <div class="col-6 p-2">
-                        <div class="">
-                            <img src="<?= base_url('assets/img/banner/'); ?>RUMAH-LAMA.jpg" class="border img-fluid" alt="">
-                        </div>
-                    </div>
-                    <div class="col-6 p-2">
-                        <div class="">
-                            <img src="<?= base_url('assets/img/banner/'); ?>RUMAH-BARU.jpg" class="border img-fluid" alt="">
-                        </div>
-                    </div> -->
                 </div>
                 <div id="banner-singel" class="row">
-                    <!-- <div class="col-12 p-2 col-header-12">
-                        <img src="https://www.jakartanotebook.com/images/banners/2024/07/Artboard_Copy_10.jpg" class=" border img-fluid" alt="">
-                        <div class="box3"></div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -250,7 +225,7 @@
             </div>
         </div> -->
     </section>
-    <section class="container">
+    <section class="container pt-4">
         <div class="row">
             <h1 class="tittle">Kategori Poperti</h1>
         </div>
@@ -287,16 +262,22 @@
                     </a>
                 </li>
                 <li class="text-webkit-center mx-w-li mb-4">
-                    <div class="i-titip-jual border-li"></div>
-                    <span class="font-weight-bold f-sz-li-porperti">Titip Jual</span>
+                    <a href="https://wa.me/6285183054936?text=Hallo%20Kanpa%2C%20Saya%20ingin%20titip%20jual%20properti%20saya%20..." target="_blank">
+                        <div class="i-titip-jual border-li"></div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Titip Jual</span>
+                    </a>
                 </li>
                 <li class="text-webkit-center mx-w-li mb-4">
-                    <div class="i-join-kanpa border-li"></div>
-                    <span class="font-weight-bold f-sz-li-porperti">Join Kanpa</span>
+                    <a href="https://wa.me/6285183054936?text=Hallo%20Kanpa%2C%20Saya%20ingin%20join%20..." target="_blank">
+                        <div class="i-join-kanpa border-li"></div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Join Kanpa</span>
+                    </a>
                 </li>
                 <li class="text-webkit-center mx-w-li mb-4">
-                    <div class="i-faq border-li"></div>
-                    <span class="font-weight-bold f-sz-li-porperti">Faq</span>
+                    <a href="https://wa.me/6285183054936?text=Hallo%20Kanpa%2C%20Saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20kanpa%20..." target="_blank">
+                        <div class="i-faq border-li"></div>
+                        <span class="font-weight-bold text-black f-sz-li-porperti">Faq</span>
+                    </a>
                 </li>
             </ul>
         </div>

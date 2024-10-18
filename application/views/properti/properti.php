@@ -1,11 +1,15 @@
 <style>
     .text-penawarann-properti.active {
         position: fixed;
-        left: 4rem;
-        margin-top: 2px !important;
+        /* left: 4rem; */
+        margin: 0px !important;
         background: #eef0f0;
         width: 100%;
-        z-index: 2;
+        z-index: 5;
+        top: 59px;
+        display: block;
+        padding: 14px 50px;
+        transition: 300ms;
     }
 </style>
 
@@ -15,8 +19,8 @@
             <i class="fa-solid fa-arrow-left btn-back"></i>
             <i id="text-url-aktif" class="text-ubuntu text-gray fz-text-penwaran text-align-center">Properti Dijual ~ Di Kota Semarang </i>
         </div>
-        <div class="text-center" style="">
-            <img id="banner-penawaran" src="<?= base_url('assets/img/banner/cari-properti.jpg'); ?>" class="img-fluid banner-properti">
+        <div class="text-center">
+            <img id="banner-penawaran" src="https://admin.kanpa.co.id/upload/banner/All_Properti.jpg" class="img-fluid banner-properti">
             <div class="posi-btn-jualsewa">
                 <button class="btn btn-penawaran dijual border-0 box-shadow font-weight-bold text-gray" data-penawaran="dijual" data-btn="">DiJual</button>
                 <button class="btn btn-penawaran disewa border-0 box-shadow font-weight-bold text-gray" data-penawaran="disewa" data-btn="">DiSewa</button>

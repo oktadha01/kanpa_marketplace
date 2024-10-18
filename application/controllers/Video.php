@@ -49,7 +49,7 @@ class Video extends CI_Controller
         $video_subset = array_slice($video_properti, $start, $limit);
 
         foreach ($video_subset as $video) {
-            $videos_html .= '<div class="swiper-slide swiper-slide-re-vi">' .
+            $videos_html .= '<div class="swiper-slide swiper-slide-re-vi" style="height: 590px;width: 45rem;">' .
                 '<div class="reel_container-review">' .
                 '    <div class="reel__content reel-content-mobile">' .
                 '        <div class="videoContainer videoContainer-rv">' .
@@ -67,14 +67,39 @@ class Video extends CI_Controller
                 '    <div class="text-desk-review">' .
                 '        <H2 class="font-weight-bold text-blue resp-mobile nm-properti">' . htmlspecialchars($video['judul_properti']) . '</H2>' .
                 '        <p style="line-height: normal;font-size: smaller;">' . htmlspecialchars(substr(substr($video['deskripsi'], 0, 100), 0, strrpos(substr($video['deskripsi'], 0, 100), ' ')) . '...') . '</p>' .
-                // '        <button class="btn-share-video mb-3"><i class="bi bi-share-fill p-2"></i> Bagikan</button>' .
-                // '            <ul class="ul-share-media d-flex justify-content-around list-none p-0">' .
-                // '               <li><i class="fa-solid fa-link"></i></li>' .
-                // '               <li><i class="fa-brands fa-whatsapp"></i></li>' .
-                // '               <li><i class="fa-brands fa-facebook-messenger"></i></li>' .
-                // '               <li><i class="fa-brands fa-facebook"></i></li>' .
-                // '               <li><i class="fa-brands fa-telegram"></i></li>' .
-                // '            </ul>' .
+                '        <button class="btn-share-video mb-3"><i class="bi bi-share-fill p-2"></i> Bagikan</button>' .
+                '            <ul class="ul-share-media justify-content-around list-none box-shadow2">' .
+                '               <li class="copy-link d-grid place-items-center text-algin-center" data-tooltip="Salin Link">' .
+                '                  <div class="bg-i box-shadow2">' .
+                '                   <i class="fa-solid fa-link"></i>' .
+                '                  </div>' .
+                '                   <span class="span-text-share">Salin Link</span>' .
+                '               </li>' .
+                '               <li class="d-grid place-items-center text-algin-center">' .
+                '                  <div class="bg-i box-shadow2">' .
+                '                   <i class="fa-brands fa-whatsapp"></i>' .
+                '                  </div>' .
+                '                   <span class="span-text-share">whatsapp</span>' .
+                '               </li>' .
+                '               <li class="d-grid place-items-center text-algin-center">' .
+                '                  <div class="bg-i box-shadow2">' .
+                '                   <i class="fa-brands fa-facebook-messenger"></i>' .
+                '                  </div>' .
+                '                   <span class="span-text-share">facebook</span>' .
+                '               </li>' .
+                '               <li class="d-grid place-items-center text-algin-center">' .
+                '                  <div class="bg-i box-shadow2">' .
+                '                   <i class="fa-brands fa-facebook"></i>' .
+                '                  </div>' .
+                '                   <span class="span-text-share">facebook</span>' .
+                '               </li>' .
+                '               <li class="d-grid place-items-center text-algin-center">' .
+                '                  <div class="bg-i box-shadow2">' .
+                '                   <i class="fa-brands fa-telegram"></i>' .
+                '                  </div>' .
+                '                   <span class="span-text-share">telegram</span>' .
+                '               </li>' .
+                '           </ul>' .
                 '        <a href="' . base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $video['judul_properti']) . '" class="text-blue font-weight-bold resp-mobile">Lihat Detail</a>' .
                 '        <div class="card border box-shadow resp-mobile p-3">' .
                 '            <h3 class="title-price">Rp ' . htmlspecialchars($video['harga']) . '</h3>' .

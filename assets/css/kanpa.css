@@ -6,6 +6,20 @@ section {
     padding-bottom: 0px;
 }
 
+div,
+span,
+p,
+i,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'ubuntu' !important;
+}
+
 /* page dashboard */
 .swiper-button-next:after,
 .swiper-button-prev:after {
@@ -56,6 +70,10 @@ section {
 
 }
 
+.btn-swiper-banner {
+    display: block;
+}
+
 .swiper-liproperty {
     display: grid !important;
 }
@@ -73,6 +91,10 @@ section {
 .box-shadow-none {
 
     box-shadow: none;
+}
+
+.box-shadow2 {
+    box-shadow: 0px 0px 4px 2px #ffffff, 3px 3px 4px 2px #00000029, inset 5px 4px 6px 0px #0000000f;
 }
 
 .tittle {
@@ -533,7 +555,7 @@ section {
 }
 
 .slider-wrapper .slide-button.prev-slide {
-    left: -65px;
+    left: 6px;
     display: none;
 }
 
@@ -633,6 +655,15 @@ section {
 
     .slider-scrollbar .scrollbar-thumb {
         width: 20%;
+    }
+
+    .btn-swiper-banner {
+        display: none;
+    }
+
+    .swiper-pagination-bullet {
+        width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 5px));
+        height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 5px));
     }
 }
 
@@ -836,7 +867,7 @@ iframe {
     font-size: x-large;
     background: #25d366;
     color: white;
-    padding: 1px 20px;
+    padding: 5px 20px;
     border-radius: 15px;
 }
 
@@ -1060,6 +1091,67 @@ span.select2-container {
     line-height: 18px;
 }
 
+/* common */
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #ffa000;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 226px;
+    padding: 4px 0;
+    background-color: #ffc800;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    color: #fff;
+    font: 700 13px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* top left*/
+.ribbon-top-left {
+    top: -10px;
+    left: -10px;
+}
+
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.ribbon-top-left::before {
+    top: 1px;
+    right: 67px;
+}
+
+.ribbon-top-left::after {
+    bottom: 66px;
+    left: 0;
+}
+
+.ribbon-top-left span {
+    right: 2px;
+    top: 23px;
+    transform: rotate(-45deg);
+}
+
+
 /* page dashboard mobile */
 
 @media only screen and (min-width: 200px) and (max-width: 1024px) and (orientation: portrait) {
@@ -1068,8 +1160,8 @@ span.select2-container {
     .swiper-pagination-bullets.swiper-pagination-horizontal,
     .swiper-pagination-custom,
     .swiper-pagination-fraction {
-        bottom: 10px;
-        left: 9rem;
+        bottom: 4px;
+        left: 7rem;
         width: 100%;
     }
 
@@ -1453,13 +1545,33 @@ span.select2-container {
 }
 
 .ul-share-media {
-    background: white;
-    padding: 8px 0px;
+    background: #ffffff;
     border-radius: 10px;
-    position: fixed;
-    width: 17rem;
-    top: 16rem;
-    z-index: 3;
+    position: absolute;
+    top: 215px;
+    z-index: 7;
+    padding: 13px 10px;
+    left: 19rem;
+    gap: 19px;
+    display: none;
+}
+
+.span-text-share {
+    font-size: 12px;
+    font-family: 'ubuntu';
+    margin-top: 6px;
+}
+
+.bg-i {
+    background: #eef0f0;
+    padding: 1px 14px;
+    border-radius: 21px;
+}
+
+.btn-share-video:hover+.ul-share-media,
+.ul-share-media:hover {
+    display: flex;
+    transition: 500ms;
 }
 
 @media only screen and (min-width:200px) and (max-width: 768px) and (orientation: portrait) {
@@ -1657,6 +1769,17 @@ span.select2-container {
     justify-content: space-between;
 }
 
+.kontak-fixed {
+    width: max-content;
+    gap: 13px;
+    padding: 6px 8px;
+    border-radius: 25px;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    background: white;
+    z-index: 2;
+}
 
 /* page perumahan mobile */
 

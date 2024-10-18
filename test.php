@@ -171,3 +171,28 @@
     });
 </script>
 
+<title>Perumahan Terbaik 2024 | Rumah Idaman, Hunian Modern, dan Properti Investasi</title>
+<meta name="description" content="Cari perumahan terbaru 2024 dengan lokasi strategis, harga terjangkau, dan desain modern. Temukan rumah idaman atau properti investasi Anda sekarang di kota-kota besar Indonesia. Mulai dari perumahan minimalis hingga cluster mewah. Perumahan Komersil dan subsidi" />
+<meta name="keywords" content="perumahan terbaru 2024, rumah idaman, properti investasi, hunian modern, perumahan minimalis, cluster mewah, rumah murah, perumahan di Jakarta, rumah di kota besar, rumah siap huni" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Nama Anda atau Perusahaan Anda" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
+<meta property="og:description" content="Jelajahi perumahan terbaru 2024 dengan desain modern dan harga terjangkau. Temukan rumah idaman Anda di kota besar Indonesia." />
+<meta property="og:image" content="https://www.example.com/path/to/image.jpg" />
+<meta property="og:url" content="https://www.example.com" />
+<meta property="og:site_name" content="Perumahan Idaman 2024" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Perumahan Terbaik 2024 | Rumah Idaman dan Hunian Modern" />
+<meta name="twitter:description" content="Temukan rumah idaman Anda di perumahan modern 2024. Strategis, terjangkau, dan siap huni." />
+<meta name="twitter:image" content="https://www.example.com/path/to/image.jpg" />
+<meta name="twitter:site" content="@yourusername" />
+
+<!-- Canonical Link -->
+<link rel="canonical" href="https://www.example.com/current-page-url" />

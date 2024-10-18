@@ -23,6 +23,7 @@
 </style>
 <section id="footer" class="contact pb-0">
 	<footer style="background: #033b6c;">
+		
 		<button class="js-push-btn" style="display: none;">
 			Subscribe Push Messaging
 		</button>

@@ -63,8 +63,15 @@ class Dashboard extends CI_Controller
 
 			if ($random_full_banner) {
 				// Add the selected full banner to the filter_full array
+				if ($random_full_banner['judul_properti'] == null) {
+					$redirect = '#';
+				} else {
+					$redirect = base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $random_full_banner['judul_properti']);
+				}
 				$filter_singel[] = '<div class="col-12 p-2 col-header-12">' .
+					'<a href="' . $redirect . '">' .
 					'<img src="https://admin.kanpa.co.id/upload/banner/' . $random_full_banner['foto_banner'] . '" class=" border img-fluid" alt="">' .
+					'</a>' .
 					'<div class="box3"></div>' .
 					'</div>';
 				$selected_full_id = $random_full_banner['id_banner'];
@@ -79,20 +86,26 @@ class Dashboard extends CI_Controller
 
 			switch ($banner['type_banner']) {
 				case 'Full':
+					if ($banner['judul_properti'] == null) {
+						$redirect = '#';
+					} else {
+						$redirect = base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $random_full_banner['judul_properti']);
+					}
 					$filter_full[] = '<div class="swiper-slide">' .
-						'<img src="https://admin.kanpa.co.id/upload/banner/' . $banner['foto_banner'] . '" alt="' . $banner['judul_properti'] . '" class="img-fluid">' .
+						'	<a href="' . $redirect . '">' .
+						'		<img src="https://admin.kanpa.co.id/upload/banner/' . $banner['foto_banner'] . '" alt="' . $banner['judul_properti'] . '" class="img-fluid">' .
+						'	</a>' .
 						'</div>';
 					break;
 
 				case 'Split':
 					$filter_split[] = '<div class="col-6 p-2">' .
-						'<div class="">' .
-						'<img src="https://admin.kanpa.co.id/upload/banner/' . $banner['foto_banner'] . '" class="border img-fluid" alt="">' .
-						'</div>' .
+						'	<a href="' . base_url('Properti/') . strtolower($banner['jenis_penawaran']) . '/">' .
+						'		<img src="https://admin.kanpa.co.id/upload/banner/' . $banner['foto_banner'] . '" class="border img-fluid" alt="">' .
+						'	</a>' .
 						'</div>';
 					break;
 			}
-
 		}
 
 		// Prepare the data array
@@ -163,18 +176,23 @@ class Dashboard extends CI_Controller
 					$gambar = $populer['gambar'];
 					$gambarArray = explode(',', $gambar);
 					$firstGambar = $gambarArray[0];
-
+					$html_ribbon = '';
+					if ($populer['status'] == 'Subsidi') {
+						$html_ribbon = '<div class="ribbon ribbon-top-left"><span>' . $populer['status'] . '</span></div>';
+					}
 					// Generate HTML for the property
 					$populer_html .= '<li class="img-item col-6 p-2 pb-3">' .
 						'<div class="populer-container">' .
 						'<a href="' . base_url('Detail/perum/') . preg_replace("![^a-z0-9]+!i", "-", $populer['judul_properti']) . '/tipe/' . $populer['luas_tanah'] . '/' . $populer['luas_bangunan'] . '">' .
 						'<div class="populer-content">' .
 						'<img src="https://admin.kanpa.co.id/upload/gambar_properti/' . htmlspecialchars($firstGambar, ENT_QUOTES, 'UTF-8') . '" class="img-produk-sw">' .
+						$html_ribbon .
+
 						'</div>' .
 						'<div class="bg-light border p-2">' .
 						'<span class="title-new-proyek">' . htmlspecialchars($populer['nama_type'], ENT_QUOTES, 'UTF-8') . '</span>' .
 						'<span class="title-tayang">Tayang sejak ' . htmlspecialchars($formattedDate, ENT_QUOTES, 'UTF-8') . '</span>' .
-						'<h3 class="title-price">Rp ' . number_format($populer['harga'], 0, ',', '.') . ' ' . htmlspecialchars($populer['satuan'], ENT_QUOTES, 'UTF-8') . '</h3>' .
+						'<h3 class="title-price">Rp ' . number_format($populer['harga'], 0, ',', '.') . ' ' . htmlspecialchars($populer['satuan'], ENT_QUOTES, 'UTF-8') . '-an</h3>' .
 						'<h5 class="title-properti text-black font-weight-bold">' . htmlspecialchars($populer['judul_properti'], ENT_QUOTES, 'UTF-8') . '</h5>' .
 						'<h6 class="font-weight-bold title-address"><i class="bi bi-geo-alt"></i> ' . htmlspecialchars($populer['alamat'], ENT_QUOTES, 'UTF-8') . '</h6>' .
 						'<ul class="d-flex ul-detail mt-3">' .
@@ -191,13 +209,15 @@ class Dashboard extends CI_Controller
 						'<h5 class="font-weight-bold title-name m-0">' . htmlspecialchars($populer['nama_agent'], ENT_QUOTES, 'UTF-8') . '</h5>' .
 						'<p class="small title-address m-0">' . htmlspecialchars($populer['position'], ENT_QUOTES, 'UTF-8') . '</p>' .
 						'</div>' .
+						'<a href="https://wa.me/' . $populer['no_tlp'] . '?text=hallo kak ' . $populer['nama_agent'] . ', Saya ingin tahu lebih lanjut tentang ' . $populer['nama_type'] . ' ' . $populer['judul_properti'] . ' ..." target="_blank">' .
 						'<i class="bi bi-whatsapp i-wa-marketing"></i>' .
+						'</a>' .
 						'</div>' .
 						'</div>' .
 						'</div>' .
 						'</li>';
 				}
-
+				// hallo kak 'nama egent', saya ingin tau lebih lanjut tentang 'nama type' 'judul properti'
 				echo $populer_html;
 			}
 		} else {
